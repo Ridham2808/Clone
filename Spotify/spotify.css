@@ -216,3 +216,58 @@ body{
     width: 20px;
     margin-right: 20px;
 }
+.song{
+    margin: 0 0 0 2vh;
+}
+
+.song>div:nth-child(1){
+    font-size: 3vh;
+}
+
+.song-list{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    margin: 5vh 0 0 0;
+}
+
+.first{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #181818;
+    width: 12vw;
+    height: 35vh;
+}
+
+.first div:nth-child(2){
+    margin: 1vh 0 1vh 0;
+}
+
+.first div:nth-child(3){
+    color: #9c9c9c;
+    margin: 1vh 0 1vh 0;
+}
+.ri{
+    display: grid;
+    grid-template-columns: repeat(auto-fill,minmax(185px,6fr));
+    position: relative;
+    left: 310px;
+    top: 26px;
+}
+.main_boxes{
+    border: 1px solid white;
+    width: 150px;
+    height: 200px;
+}
+.main_boxes img{
+    margin: 12px;
+    width: 126px;
+    height: 125px;
+}
+.ri p{
+    color: white;
+    margin-left: 10px;
+}
