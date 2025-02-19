@@ -3,83 +3,102 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Simple Calculator</title>
     <style>
-    body{
-        background-color: black;
-    }
-    .main{
-        margin-left: 50px;
-        margin-top: 250px;
-        display: grid;
-        grid-template-columns: 50px 50px 50px 50px;
-        align-content: center;
-        text-align: center;
-        justify-content: center;
-        border: 2px solid white;
-        margin-left: 342px;
-        margin-right: 901px;
-        
-    }
-    .one{
-        /* border: 1px solid white; */
-        color: azure;
-        justify-content: center;
-        text-align: center;
-        background-color: rgb(82, 88, 94);
-        border-radius: 50%;
-        height: 50px;       
-        align-content: center;
-        row-gap: 80%;
-        margin: 5px;
+        body { 
+            background-color: black;
+            margin: 0;
+        }
 
-     
-    }
-    #zero{
-        grid-column-start:1 ;
-        grid-column-end:3 ;
-        border-radius: 18px;
-    }
-    #total{
-        grid-column-start:1 ;
-        grid-column-end:5 ;
-        text-align:right;
-        font-size: larger;
-      
-        background-color: black;
-    }
-    #five,#six,#seven{
-        background-color: grey;
-    }
-    #eight,#nine,#ten,#eleven,#tht{
-        background-color: goldenrod;
-    }
-    
+        .main {
+            display: grid;
+            grid-template-columns: repeat(4, 50px);
+            gap: 5px;
+            justify-content: center;
+            margin: 50px auto;
+            border: 1px solid white;
+            border-radius: 10px;
+            box-sizing: border-box;
+            width: max-content;
+        }
+
+        .one {
+            background-color: grey;
+            color: azure;
+            text-align: center;
+            height: 50px; 
+            line-height: 50px; 
+            border-radius: 10px;
+            cursor: pointer; 
+            font-size: 18px;
+        }
+
+        #total {
+            grid-column: span 4; 
+            background: black; 
+            color: white;
+            text-align: right; 
+            padding: 10px; 
+            font-size: 25px; 
+            border: 1px solid white;
+        }
+
+        #eight, #nine, #ten, #eleven, #tht { 
+            background-color: goldenrod; 
+        }
+
+        #zero { 
+            grid-column: span 1; 
+        }
+
+        #tht { 
+            grid-column: span 2; 
+        }
     </style>
 </head>
-<body >
-    
+<body>
     <div class="main">
-        <div class="one" id="total" style="font-size: 25px;">7744</div>
-        <div class="one" id="five">c</div>
-        <div class="one" id="six">+/-</div>
-        <div class="one" id="seven">%</div>
-        <div class="one" id="eight">/</div>
-        <div class="one">7</div>
-        <div class="one">8</div>
-        <div class="one">9</div>
-        <div class="one" id="nine">*</div>
-        <div class="one">4</div>
-        <div class="one">5</div>
-        <div class="one">6</div>
-        <div class="one" id="ten">-</div>
-        <div class="one">1</div>
-        <div class="one">2</div>
-        <div class="one">3</div>
-        <div class="one" id="eleven">+</div>
-        <div class="one" id="zero">0</div>
-        <div class="one" id="tew">.</div>
+        <div class="one" id="total">0</div>
+
+        <div class="one">C</div> 
+        <div class="one">+/-</div> 
+        <div class="one">%</div> 
+        <div class="one">/</div>
+
+        <div class="one">7</div> 
+        <div class="one">8</div> 
+        <div class="one">9</div> 
+        <div class="one">*</div>
+
+        <div class="one">4</div> 
+        <div class="one">5</div> 
+        <div class="one">6</div> 
+        <div class="one">-</div>
+
+        <div class="one">1</div> 
+        <div class="one">2</div> 
+        <div class="one">3</div> 
+        <div class="one">+</div>
+
+        <div class="one" id="zero">0</div> 
+        <div class="one">.</div> 
         <div class="one" id="tht">=</div>
     </div>
+
+    <script>
+        let display = document.getElementById('total');
+        let buttons = document.querySelectorAll('.one');
+        let input = '';
+
+        buttons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                let value = btn.textContent;
+                if (value === 'C') input = '';
+                else if (value === '=') input = eval(input);
+                else input += value;
+                display.textContent = input || '0';
+            });
+        });
+    </script>
 </body>
 </html>
